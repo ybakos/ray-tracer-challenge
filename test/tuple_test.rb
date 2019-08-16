@@ -44,7 +44,7 @@ describe Tuple do
     it { assert_equal(0.0, v.w) }
   end
 
-  describe "tuple equivalence" do
+  describe "Tuple equivalence" do
     it "holds true when two tuples have the same component values" do
       a = Tuple.new(1, 1, 1, 1)
       b = Tuple.new(1, 1, 1, 1)
@@ -63,6 +63,12 @@ describe Tuple do
       assert a == b
     end
 
+  end
+
+  describe "Adding two tuples" do
+    a1 = Tuple.new(3, -2, 5, 1)
+    a2 = Tuple.new(-2, 3, 1, 0)
+    it { assert_equal Tuple.new(1, 1, 6, 1), a1 + a2 }
   end
 
 end
