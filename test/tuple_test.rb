@@ -85,6 +85,12 @@ describe Tuple do
       difference = Point.new(-2, -4, -6)
       it { assert_equal difference, p1 - p2 }
     end
+    describe "two vectors" do
+      p1 = Vector.new(3, 2, 1)
+      p2 = Vector.new(5, 6, 7)
+      difference = Vector.new(-2, -4, -6)
+      it { assert_equal difference, p1 - p2 }
+    end
   end
 
 end
