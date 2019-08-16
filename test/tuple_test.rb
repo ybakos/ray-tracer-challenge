@@ -93,4 +93,13 @@ describe Tuple do
     end
   end
 
+  describe "Negating" do
+    describe "Subtracting a vector from the zero vector" do
+      zero = Vector.new(0, 0, 0)
+      v = Vector.new(1, -2, 3)
+      negated = Vector.new(-1, 2, -3)
+      it { assert_equal negated, zero - v }
+    end
+  end
+
 end
