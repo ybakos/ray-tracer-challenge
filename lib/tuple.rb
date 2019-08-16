@@ -33,4 +33,8 @@ class Tuple
     Tuple.new(self.x - other.x, self.y - other.y, self.z - other.z, self.w - other.w)
   end
 
+  def -@
+    Tuple.new(-self.x, -self.y, -self.z, -self.w)
+  end
+
 end
