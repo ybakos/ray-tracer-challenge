@@ -3,6 +3,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../lib/tuple'
 require_relative '../lib/point'
+require_relative '../lib/vector'
 
 describe Tuple do
 
@@ -36,6 +37,11 @@ describe Tuple do
   describe "point() creates tuples with w=1" do
     p = Point.new(4, -4, 3)
     it { assert_equal(1.0, p.w) }
+  end
+
+  describe "vector() creates tuples with w=0" do
+    v = Vector.new(4, -4, 3)
+    it { assert_equal(0.0, v.w) }
   end
 
 end
