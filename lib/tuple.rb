@@ -17,4 +17,12 @@ class Tuple
     w == 0.0
   end
 
+  EPSILON = 0.00001
+  def ==(other)
+    (self.x - other.x).abs < EPSILON &&
+    (self.y - other.y).abs < EPSILON &&
+    (self.z - other.z).abs < EPSILON &&
+    (self.w - other.w).abs < EPSILON
+  end
+
 end

@@ -44,4 +44,25 @@ describe Tuple do
     it { assert_equal(0.0, v.w) }
   end
 
+  describe "tuple equivalence" do
+    it "holds true when two tuples have the same component values" do
+      a = Tuple.new(1, 1, 1, 1)
+      b = Tuple.new(1, 1, 1, 1)
+      assert a == b
+    end
+
+    it "does not hold true when two tuples have different component values" do
+      a = Tuple.new(0, 1, 1, 1) # Good enough
+      b = Tuple.new(1, 1, 1, 1)
+      refute a == b
+    end
+
+    it "holds true when two tuples have different values within an epsilon" do
+      a = Tuple.new(1.000001, 1, 1, 1)
+      b = Tuple.new(1.000000, 1, 1, 1)
+      assert a == b
+    end
+
+  end
+
 end
