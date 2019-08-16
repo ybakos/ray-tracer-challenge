@@ -68,7 +68,15 @@ describe Tuple do
   describe "Adding two tuples" do
     a1 = Tuple.new(3, -2, 5, 1)
     a2 = Tuple.new(-2, 3, 1, 0)
-    it { assert_equal Tuple.new(1, 1, 6, 1), a1 + a2 }
+    sum = Tuple.new(1, 1, 6, 1)
+    it { assert_equal sum, a1 + a2 }
+  end
+
+  describe "Subtracting two points" do
+    p1 = Point.new(3, 2, 1)
+    p2 = Point.new(5, 6, 7)
+    difference = Vector.new(-2, -4, -6)
+    it { assert_equal difference, p1 - p2 }
   end
 
 end
