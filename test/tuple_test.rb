@@ -176,4 +176,13 @@ describe Tuple do
     end
   end
 
+  describe "Colors" do
+    it "are (red, green, blue) tuples" do
+      c = Color.new(-0.5, 0.4, 1.7)
+      assert_equal -0.5, c.red
+      assert_equal 0.4, c.green
+      assert_equal 1.7, c.blue
+    end
+  end
+
 end

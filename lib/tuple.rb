@@ -70,17 +70,23 @@ class Tuple
 end
 
 class Vector < Tuple
+  def initialize(x, y, z)
+    super(x, y, z, 0.0)
+  end
+end
+
+class Point < Tuple
+  def initialize(x, y, z)
+    super(x, y, z, 1.0)
+  end
+end
+
+class Color < Tuple
+  alias_method :red, :x
+  alias_method :green, :y
+  alias_method :blue, :z
 
   def initialize(x, y, z)
     super(x, y, z, 0.0)
   end
-
-end
-
-class Point < Tuple
-
-  def initialize(x, y, z)
-    super(x, y, z, 1.0)
-  end
-
 end
