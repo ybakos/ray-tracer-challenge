@@ -3,10 +3,10 @@ class Tuple
   attr_reader :x, :y, :z, :w
 
   def initialize(x, y, z, w)
-    @x = x
-    @y = y
-    @z = z
-    @w = w
+    @x = x.to_f
+    @y = y.to_f
+    @z = z.to_f
+    @w = w.to_f
   end
 
   def point?
@@ -38,6 +38,7 @@ class Tuple
   end
 
   def *(scalar)
+    scalar = scalar.to_f
     Tuple.new(self.x * scalar, self.y * scalar, self.z * scalar, self.w * scalar)
   end
 
