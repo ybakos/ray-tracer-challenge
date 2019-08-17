@@ -47,4 +47,8 @@ class Tuple
     Tuple.new(self.x / scalar, self.y / scalar, self.z / scalar, self.w / scalar)
   end
 
+  def magnitude
+    Math.sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2 + self.w ** 2)
+  end
+
 end

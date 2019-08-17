@@ -131,4 +131,22 @@ describe Tuple do
     it { assert_equal result, a / 2 }
   end
 
+  describe "Magnitude" do
+    it "for (1, 0, 0)" do
+      assert_equal 1.0, Vector.new(1, 0, 0).magnitude
+    end
+    it "for (0, 1, 0)" do
+      assert_equal 1.0, Vector.new(0, 1, 0).magnitude
+    end
+    it "for (0, 0, 1)" do
+      assert_equal 1.0, Vector.new(0, 0, 1).magnitude
+    end
+    it "for (1, 2, 3)" do
+      assert_equal Math.sqrt(14), Vector.new(1, 2, 3).magnitude
+    end
+    it "for (-1, -2, -3)" do
+      assert_equal Math.sqrt(14), Vector.new(-1, -2, -3).magnitude
+    end
+  end
+
 end
