@@ -59,4 +59,12 @@ class Tuple
     self.x * other.x + self.y * other.y + self.z * other.z + self.w * other.w
   end
 
+  def cross_product(other)
+    Tuple.new(
+      self.y * other.z - self.z * other.y,
+      self.z * other.x - self.x * other.z,
+      self.x * other.y - self.y * other.x,
+      0)
+  end
+
 end

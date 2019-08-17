@@ -169,4 +169,13 @@ describe Tuple do
     end
   end
 
+  describe "Cross product" do
+    it "of two vectors" do
+      a = Vector.new(1, 2, 3)
+      b = Vector.new(2, 3, 4)
+      assert_equal Vector.new(-1, 2, -1), a.cross_product(b)
+      assert_equal Vector.new(1, -2, 1), b.cross_product(a)
+    end
+  end
+
 end
