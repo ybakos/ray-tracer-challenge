@@ -113,6 +113,11 @@ describe Tuple do
       result = Tuple.new(3.5, -7.0, 10.5, -14.0)
       it { assert_equal result, a * 3.5 }
     end
+    describe "a tuple by a fraction" do
+      a = Tuple.new(1, -2, 3, -4)
+      result = Tuple.new(0.5, -1, 1.5, -2)
+      it { assert_equal result, a * 0.5 }
+    end
   end
 
 end
