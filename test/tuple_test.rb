@@ -2,8 +2,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require_relative '../lib/tuple'
-require_relative '../lib/point'
-require_relative '../lib/vector'
 
 describe Tuple do
 

@@ -68,3 +68,19 @@ class Tuple
   end
 
 end
+
+class Vector < Tuple
+
+  def initialize(x, y, z)
+    super(x, y, z, 0.0)
+  end
+
+end
+
+class Point < Tuple
+
+  def initialize(x, y, z)
+    super(x, y, z, 1.0)
+  end
+
+end
