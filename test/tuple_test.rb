@@ -125,4 +125,10 @@ describe Tuple do
     end
   end
 
+  describe "Dividing a tuple by a scalar" do
+    a = Tuple.new(1, -2, 3, -4)
+    result = Tuple.new(0.5, -1, 1.5, -2)
+    it { assert_equal result, a / 2 }
+  end
+
 end

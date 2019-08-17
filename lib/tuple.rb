@@ -42,4 +42,9 @@ class Tuple
     Tuple.new(self.x * scalar, self.y * scalar, self.z * scalar, self.w * scalar)
   end
 
+  def /(scalar)
+    scalar = scalar.to_f
+    Tuple.new(self.x / scalar, self.y / scalar, self.z / scalar, self.w / scalar)
+  end
+
 end
