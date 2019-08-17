@@ -161,4 +161,12 @@ describe Tuple do
     end
   end
 
+  describe "Dot product" do
+    it "of two tuples" do
+      a = Vector.new(1, 2, 3)
+      b = Vector.new(2, 3, 4)
+      assert_equal 20.0, a.dot_product(b)
+    end
+  end
+
 end

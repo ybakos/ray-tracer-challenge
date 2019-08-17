@@ -55,4 +55,8 @@ class Tuple
     Tuple.new(self.x / magnitude, self.y / magnitude, self.z / magnitude, self.w / magnitude)
   end
 
+  def dot_product(other)
+    self.x * other.x + self.y * other.y + self.z * other.z + self.w * other.w
+  end
+
 end
