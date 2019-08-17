@@ -132,20 +132,32 @@ describe Tuple do
   end
 
   describe "Magnitude" do
-    it "for (1, 0, 0)" do
+    it "of (1, 0, 0)" do
       assert_equal 1.0, Vector.new(1, 0, 0).magnitude
     end
-    it "for (0, 1, 0)" do
+    it "of (0, 1, 0)" do
       assert_equal 1.0, Vector.new(0, 1, 0).magnitude
     end
-    it "for (0, 0, 1)" do
+    it "of (0, 0, 1)" do
       assert_equal 1.0, Vector.new(0, 0, 1).magnitude
     end
-    it "for (1, 2, 3)" do
+    it "of (1, 2, 3)" do
       assert_equal Math.sqrt(14), Vector.new(1, 2, 3).magnitude
     end
-    it "for (-1, -2, -3)" do
+    it "of (-1, -2, -3)" do
       assert_equal Math.sqrt(14), Vector.new(-1, -2, -3).magnitude
+    end
+    it "of a normalized vector" do
+      assert_equal 1.0, Vector.new(1, 2, 3).normalize.magnitude
+    end
+  end
+
+  describe "Normalization" do
+    it "of (4, 0, 0)" do
+      assert_equal Vector.new(1, 0, 0), Vector.new(4, 0, 0).normalize
+    end
+    it "of (1, 2, 3)"do
+      assert_equal Vector.new(0.26726, 0.53452, 0.80178), Vector.new(1, 2, 3).normalize
     end
   end
 
