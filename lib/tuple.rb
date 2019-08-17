@@ -37,4 +37,8 @@ class Tuple
     Tuple.new(-self.x, -self.y, -self.z, -self.w)
   end
 
+  def *(scalar)
+    Tuple.new(self.x * scalar, self.y * scalar, self.z * scalar, self.w * scalar)
+  end
+
 end

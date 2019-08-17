@@ -107,4 +107,12 @@ describe Tuple do
     end
   end
 
+  describe "Multiplying" do
+    describe "a tuple by a scalar" do
+      a = Tuple.new(1, -2, 3, -4)
+      result = Tuple.new(3.5, -7.0, 10.5, -14.0)
+      it { assert_equal result, a * 3.5 }
+    end
+  end
+
 end
