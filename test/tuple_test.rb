@@ -183,6 +183,25 @@ describe Tuple do
       assert_equal 0.4, c.green
       assert_equal 1.7, c.blue
     end
+    it "adding" do
+      c1 = Color.new(0.9, 0.6, 0.75)
+      c2 = Color.new(0.7, 0.1, 0.25)
+      assert_equal Color.new(1.6, 0.7, 1.0), c1 + c2
+    end
+    it "subtracts" do
+      c1 = Color.new(0.9, 0.6, 0.75)
+      c2 = Color.new(0.7, 0.1, 0.25)
+      assert_equal Color.new(0.2, 0.5, 0.5), c1 - c2
+    end
+    it "multiplying by a scalar" do
+      c = Color.new(0.2, 0.3, 0.4)
+      assert_equal Color.new(0.4, 0.6, 0.8), c * 2
+    end
+    it "hadamard product" do
+      c1 = Color.new(1.0, 0.2, 0.4)
+      c2 = Color.new(0.9, 1.0, 0.1)
+      assert_equal Color.new(0.9, 0.2, 0.04), c1.hadamard_product(c2)
+    end
   end
 
 end

@@ -67,6 +67,10 @@ class Tuple
       0)
   end
 
+  def hadamard_product(other_color)
+    Color.new(self.x * other_color.x, self.y * other_color.y, self.z * other_color.z)
+  end
+
 end
 
 class Vector < Tuple
