@@ -39,4 +39,16 @@ describe Canvas do
     end
   end
 
+  describe "PPM data" do
+    it "generates the PPM header" do
+      c = Canvas.new(5, 3)
+      expected_header = <<~PPM
+        P3
+        5 3
+        255
+      PPM
+      assert_equal expected_header, c.to_ppm
+    end
+  end
+
 end

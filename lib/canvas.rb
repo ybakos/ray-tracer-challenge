@@ -22,4 +22,12 @@ class Canvas
     self.pixels[x + y * self.width]
   end
 
+  def to_ppm
+    <<~PPM
+    P3
+    5 3
+    255
+    PPM
+  end
+
 end
