@@ -11,8 +11,16 @@ describe Canvas do
     it { assert_equal 10, c.width }
     it { assert_equal 20, c.height }
     it "has pixels all set to (0, 0, 0)" do
-      c.pixels.each { |p| assert_equal Color.new(0, 0, 0), p }
+      black = Color.new(0, 0, 0)
+      c.pixels.each { |p| assert_equal black, p }
     end
+  end
+
+  it "Writes pixels at an x, y location" do
+    c = Canvas.new(10, 20)
+    red = Color.new(1, 0, 0)
+    c.write_pixel(2, 3, red)
+    assert_equal red, c.pixel_at(2, 3)
   end
 
 end
