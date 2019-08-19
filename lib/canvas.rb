@@ -1,5 +1,7 @@
 require_relative 'tuple'
 
+class CanvasCoordinateOutOfBoundsException < ArgumentError; end
+
 class Canvas
 
   attr_reader :width, :height, :pixels
@@ -11,10 +13,12 @@ class Canvas
   end
 
   def write_pixel(x, y, color)
+    raise CanvasCoordinateOutOfBoundsException if (x >= width || y >= height) 
     self.pixels[x + y * self.width] = color
   end
 
   def pixel_at(x, y)
+    raise CanvasCoordinateOutOfBoundsException if (x >= width || y >= height) 
     self.pixels[x + y * self.width]
   end
 

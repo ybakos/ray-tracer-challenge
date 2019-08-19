@@ -23,4 +23,20 @@ describe Canvas do
     assert_equal red, c.pixel_at(2, 3)
   end
 
+  it "raises an exception if x or y are out of bounds" do
+    c = Canvas.new(10, 20)
+    assert_raises CanvasCoordinateOutOfBoundsException do
+      c.write_pixel(c.width, 0, Color.new(0, 0, 0))
+    end
+    assert_raises CanvasCoordinateOutOfBoundsException do
+      c.write_pixel(0, c.height, Color.new(0, 0, 0))
+    end
+    assert_raises CanvasCoordinateOutOfBoundsException do
+      c.pixel_at(c.width, 0)
+    end
+    assert_raises CanvasCoordinateOutOfBoundsException do
+      c.pixel_at(0, c.height)
+    end
+  end
+
 end
