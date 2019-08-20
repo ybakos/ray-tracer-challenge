@@ -40,11 +40,9 @@ class Canvas
   end
   
   def ppm_pixels
-    "".tap do |ppm|
-      self.pixels.each_slice(width) do |row|
-        ppm << row.reduce('') { |r, p| r << " #{p.to_ppm}" }.lstrip << "\n"
-      end
-    end
+    self.pixels.each_slice(width).map do |row|
+      row.reduce('') { |ppm, pixel| ppm << " #{pixel.to_ppm}" }.lstrip << "\n"
+    end.join
   end
 
 end
