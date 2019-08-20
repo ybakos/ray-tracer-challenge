@@ -47,7 +47,8 @@ describe Canvas do
         5 3
         255
       PPM
-      assert_equal expected_header, c.to_ppm
+      generated_header = c.to_ppm.lines[0..2].join
+      assert_equal expected_header, generated_header
     end
   end
 

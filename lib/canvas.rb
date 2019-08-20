@@ -4,6 +4,9 @@ class CanvasCoordinateOutOfBoundsException < ArgumentError; end
 
 class Canvas
 
+  PPM_MAGIC_NUMBER = 'P3'
+  MAX_COLOR_VALUE = 255
+
   attr_reader :width, :height, :pixels
 
   def initialize(width, height)
@@ -23,10 +26,16 @@ class Canvas
   end
 
   def to_ppm
+    ppm_header
+  end
+
+  private
+
+  def ppm_header
     <<~PPM
-    P3
-    5 3
-    255
+      #{PPM_MAGIC_NUMBER}
+      #{self.width} #{self.height}
+      #{MAX_COLOR_VALUE}
     PPM
   end
 
