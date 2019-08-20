@@ -86,6 +86,10 @@ class Point < Tuple
 end
 
 class Color < Tuple
+
+  MIN = 0
+  MAX = 255
+
   alias_method :red, :x
   alias_method :green, :y
   alias_method :blue, :z
@@ -93,4 +97,15 @@ class Color < Tuple
   def initialize(x, y, z)
     super(x, y, z, 0.0)
   end
+
+  def to_ppm
+    "#{component_as_ranged_int(:red)} #{component_as_ranged_int(:green)} #{component_as_ranged_int(:blue)}"
+  end
+
+  private
+
+  def component_as_ranged_int(name)
+    (self.send(name)*MAX).round.clamp(MIN, MAX).to_i
+  end
+
 end

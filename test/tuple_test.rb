@@ -202,6 +202,20 @@ describe Tuple do
       c2 = Color.new(0.9, 1.0, 0.1)
       assert_equal Color.new(0.9, 0.2, 0.04), c1.hadamard_product(c2)
     end
+    describe "PPM" do
+      it "renders as three integers" do
+        c = Color.new(0, 0, 0)
+        assert_equal "0 0 0", c.to_ppm
+      end
+      it "renders as a number from 0 to 255" do
+        c = Color.new(0, 0.5, 1.0)
+        assert_equal "0 128 255", c.to_ppm
+      end
+      it "clamps values outside of range from 0 to 255" do
+        c = Color.new(-1.0, 0.5, 1.5)
+        assert_equal "0 128 255", c.to_ppm
+      end
+    end
   end
 
 end
