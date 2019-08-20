@@ -26,7 +26,7 @@ class Canvas
   end
 
   def to_ppm
-    ppm_header
+    ppm_header << ppm_pixels
   end
 
   private
@@ -37,6 +37,14 @@ class Canvas
       #{self.width} #{self.height}
       #{MAX_COLOR_VALUE}
     PPM
+  end
+  
+  def ppm_pixels
+    "".tap do |ppm|
+      self.pixels.each_slice(width) do |row|
+        ppm << row.reduce('') { |r, p| r << " #{p.to_ppm}" }.lstrip << "\n"
+      end
+    end
   end
 
 end

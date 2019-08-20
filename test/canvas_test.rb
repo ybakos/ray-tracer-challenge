@@ -50,6 +50,23 @@ describe Canvas do
       generated_header = c.to_ppm.lines[0..2].join
       assert_equal expected_header, generated_header
     end
+
+    it "generates pixel data" do
+      c = Canvas.new(5, 3)
+      c1 = Color.new(1.5, 0, 0)
+      c2 = Color.new(0, 0.5, 0)
+      c3 = Color.new(-0.5, 0, 1)
+      c.write_pixel(0, 0, c1)
+      c.write_pixel(2, 1, c2)
+      c.write_pixel(4, 2, c3)
+      expected_ppm = <<~PPM
+        255 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+        0 0 0 0 0 0 0 128 0 0 0 0 0 0 0
+        0 0 0 0 0 0 0 0 0 0 0 0 0 0 255
+      PPM
+      generated_ppm = c.to_ppm.lines[3..5].join
+      assert_equal expected_ppm, generated_ppm
+    end
   end
 
 end
