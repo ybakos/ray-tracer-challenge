@@ -82,6 +82,13 @@ describe Canvas do
       generated_ppm = c.to_ppm.lines[3..6].join
       assert_equal expected_ppm, generated_ppm
     end
+
+    it "ends with a newline character" do
+      c = Canvas.new(5, 3)
+      generated_ppm = c.to_ppm
+      assert_equal "\n", generated_ppm[-1]
+    end
+
   end
 
 end
