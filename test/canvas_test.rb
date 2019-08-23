@@ -40,6 +40,7 @@ describe Canvas do
   end
 
   describe "PPM data" do
+
     it "generates the PPM header" do
       c = Canvas.new(5, 3)
       expected_header = <<~PPM
@@ -65,6 +66,20 @@ describe Canvas do
         0 0 0 0 0 0 0 0 0 0 0 0 0 0 255
       PPM
       generated_ppm = c.to_ppm.lines[3..5].join
+      assert_equal expected_ppm, generated_ppm
+    end
+
+    it "ensures a maximum line length of 70 characters" do
+      c = Canvas.new(10, 2)
+      pixel = Color.new(1, 0.8, 0.6)
+      20.times { |i| c.write_pixel(i % c.width, i / c.width, pixel) }
+      expected_ppm = <<~PPM
+        255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204
+        153 255 204 153 255 204 153 255 204 153 255 204 153
+        255 204 153 255 204 153 255 204 153 255 204 153 255 204 153 255 204
+        153 255 204 153 255 204 153 255 204 153 255 204 153
+      PPM
+      generated_ppm = c.to_ppm.lines[3..6].join
       assert_equal expected_ppm, generated_ppm
     end
   end

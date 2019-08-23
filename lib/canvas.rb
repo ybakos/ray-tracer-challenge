@@ -1,4 +1,5 @@
 require_relative 'tuple'
+require 'byebug'
 
 class CanvasCoordinateOutOfBoundsException < ArgumentError; end
 
@@ -42,7 +43,9 @@ class Canvas
   def ppm_pixels
     self.pixels.each_slice(width).map do |row|
       row.reduce('') { |ppm, pixel| ppm << " #{pixel.to_ppm}" }.lstrip << "\n"
-    end.join
+    end.reduce([]) do |arr, el|
+      arr << el.scan(/\S.{1,68}(?!\S)/)
+    end.flatten.join("\n") << "\n"
   end
 
 end
