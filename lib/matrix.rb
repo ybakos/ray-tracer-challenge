@@ -10,8 +10,13 @@ class Matrix
     self.rows[row_index][column_index]
   end
 
+  EPSILON = 0.00001
   def ==(other)
-    self.rows == other.rows
+    other_elements = other.rows.flatten
+    self.rows.flatten.each_with_index do |e, i|
+      return false if (e - other_elements[i]).abs >= EPSILON
+    end
+    true
   end
 
 end

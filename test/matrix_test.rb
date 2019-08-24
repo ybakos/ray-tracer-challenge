@@ -37,10 +37,19 @@ describe Matrix do
       b = Matrix.new([[1, 2, 3, 4], [5, 6, 7, 8], [9, 8, 7, 6], [5, 4, 3, 2]])
       assert_equal a, b
     end
-
     it "different matrices" do
       a = Matrix.new([[1, 2, 3, 4], [5, 6, 7, 8], [9, 8, 7, 6], [5, 4, 3, 2]])
       b = Matrix.new([[2, 3, 4, 5], [6, 7, 8, 9], [8, 7, 6, 5], [4, 3, 2, 1]])
+      refute_equal a, b
+    end
+    it "identical enough floating-point matrices" do
+      a = Matrix.new([[0.0, 0.0], [0.0, 0.0]])
+      b = Matrix.new([[0.0, 0.000009], [0.0, 0.0]])
+      assert_equal a, b
+    end
+    it "differnt floating-point matrices" do
+      a = Matrix.new([[0.0, 0.0], [0.0, 0.0]])
+      b = Matrix.new([[0.0, 0.00001], [0.0, 0.0]])
       refute_equal a, b
     end
   end
