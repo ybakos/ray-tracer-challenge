@@ -10,6 +10,8 @@ class Matrix
     self.rows[row_index][column_index]
   end
 
-  
+  def ==(other)
+    self.rows == other.rows
+  end
 
 end
