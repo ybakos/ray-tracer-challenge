@@ -6,8 +6,8 @@ class Matrix
     @rows = rows
   end
 
-  def [](row_index)
-    self.rows[row_index]
+  def [](row_index, column_index)
+    self.rows[row_index][column_index]
   end
 
   
