@@ -54,4 +54,29 @@ describe Matrix do
     end
   end
 
+  describe "Multiplication" do
+    it "of two 4x4 matrices" do
+      a = Matrix.new([[1, 2, 3, 4], [5, 6, 7, 8], [9, 8, 7, 6], [5, 4, 3, 2]])
+      b = Matrix.new([[-2, 1, 2, 3], [3, 2, 1, -1], [4, 3, 6, 5], [1, 2, 7, 8]])
+      expected_product = Matrix.new([[20, 22, 50, 48], [44, 54, 114, 108], [40, 58, 110, 102], [16, 26, 46, 42]])
+      assert_equal expected_product, a * b
+    end
+  end
+
+  it "element reading" do
+    m = Matrix.new([[1, 2], [3, 4]])
+    assert_equal 4, m[1,1]
+  end
+
+  it "new element assignment" do
+    m = Matrix.new([[0,0], [0,0]])
+    m[1,1] = 42
+    assert_equal 42, m[1,1]
+  end
+
+  it "has columns" do
+    m = Matrix.new([[1, 2], [3, 4]])
+    assert_equal [2, 4], m.column(1)
+  end
+
 end
