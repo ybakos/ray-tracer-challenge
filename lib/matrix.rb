@@ -6,6 +6,10 @@ class Matrix
 
   attr_reader :rows
 
+  def self.identity
+    Matrix.new([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 1, 0], [0, 0, 0, 1]])
+  end
+
   def initialize(rows)
     @rows = rows
   end

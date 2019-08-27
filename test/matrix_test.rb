@@ -66,6 +66,10 @@ describe Matrix do
       t = Tuple.new(1, 2, 3, 1)
       assert_equal Tuple.new(18, 24, 33, 1), m * t
     end
+    it "with the identity matrix" do
+      m = Matrix.new([[0, 1, 2, 4], [1, 2, 4, 8], [2, 4, 8, 16], [4, 8, 16, 32]])
+      assert_equal m, m ** Matrix.identity
+    end
   end
 
   it "element reading" do
