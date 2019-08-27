@@ -6,7 +6,7 @@ require_relative '../lib/tuple'
 
 describe Canvas do
 
-  describe "Creation" do
+  describe "Constructing" do
     c = Canvas.new(10, 20)
     it { assert_equal 10, c.width }
     it { assert_equal 20, c.height }

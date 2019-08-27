@@ -150,11 +150,11 @@ describe Tuple do
     end
   end
 
-  describe "Normalization" do
-    it "of (4, 0, 0)" do
+  describe "Normalizing" do
+    it "(4, 0, 0)" do
       assert_equal Vector.new(1, 0, 0), Vector.new(4, 0, 0).normalize
     end
-    it "of (1, 2, 3)"do
+    it "(1, 2, 3)"do
       assert_equal Vector.new(0.26726, 0.53452, 0.80178), Vector.new(1, 2, 3).normalize
     end
   end
