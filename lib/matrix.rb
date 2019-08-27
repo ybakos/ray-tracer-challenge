@@ -61,4 +61,8 @@ class Matrix
     )
   end
 
+  def transpose
+    Matrix.new( (0..self.rows.first.length-1).map { |i| self.column(i) } )
+  end
+
 end

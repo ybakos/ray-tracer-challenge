@@ -88,4 +88,15 @@ describe Matrix do
     assert_equal [2, 4], m.column(1)
   end
 
+  describe "Transposing" do
+    it "a 4x4 matrix" do
+      a = Matrix.new([[0, 9, 3, 0], [9, 8, 0, 8], [1, 8, 5, 3], [0, 0, 5, 8]])
+      transposed = Matrix.new([[0, 9, 1, 0], [9, 8, 8, 0], [3, 0, 5, 5], [0, 8, 3, 8]])
+      assert_equal transposed, a.transpose
+    end
+    it "the identity matrix" do
+      assert_equal Matrix.identity, Matrix.identity.transpose
+    end
+  end
+
 end
