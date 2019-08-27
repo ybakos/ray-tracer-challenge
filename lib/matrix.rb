@@ -26,7 +26,7 @@ class Matrix
     if row_index > rows.length - 1 || column_index > rows[0].length - 1
       raise MatrixIndexOutOfBoundsException
     end
-    self.rows[row_index][column_index] = value 
+    self.rows[row_index][column_index] = value
   end
 
   EPSILON = 0.00001
@@ -38,7 +38,7 @@ class Matrix
     true
   end
 
-  def *(other)
+  def **(other)
     Matrix.new(other.rows.map {|_|Array.new(other.rows[0].length)}).tap do |m|
       (rows.length).times do |row_index|
         (rows[0].length).times do |col_index|
@@ -46,6 +46,15 @@ class Matrix
         end
       end
     end
+  end
+
+  def *(tuple)
+    Tuple.new(
+      self[0,0] * tuple.x + self[0,1] * tuple.y + self[0,2] * tuple.z + self[0,3] * tuple.w,
+      self[1,0] * tuple.x + self[1,1] * tuple.y + self[1,2] * tuple.z + self[1,3] * tuple.w,
+      self[2,0] * tuple.x + self[2,1] * tuple.y + self[2,2] * tuple.z + self[2,3] * tuple.w,
+      self[3,0] * tuple.x + self[3,1] * tuple.y + self[3,2] * tuple.z + self[3,3] * tuple.w
+    )
   end
 
 end
