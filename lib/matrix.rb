@@ -78,6 +78,7 @@ class Matrix
         result[i,column] = nil
       end
       result.rows.each(&:compact!)
+      result.rows.delete_if { |row| row.empty? }
     end
   end
 
