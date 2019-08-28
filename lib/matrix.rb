@@ -69,4 +69,16 @@ class Matrix
     (self[0,0] * self[1,1]) - (self[1,0] * self[0,1])
   end
 
+  def submatrix(row, column)
+    Matrix.new(self.rows).tap do |result|
+      (0..(result.rows[0].length-1)).each do |i|
+        result[row,i] = nil
+      end
+      (0..(result.rows.length-1)).each do |i|
+        result[i,column] = nil
+      end
+      result.rows.each(&:compact!)
+    end
+  end
+
 end
