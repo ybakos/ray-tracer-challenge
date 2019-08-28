@@ -99,4 +99,11 @@ describe Matrix do
     end
   end
 
+  describe "Determinant" do
+    it "of a 2x2 matrix" do
+      a = Matrix.new([[1, 5], [-3, 2]])
+      assert_equal 17, a.determinant
+    end
+  end
+
 end

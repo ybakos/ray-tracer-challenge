@@ -65,4 +65,8 @@ class Matrix
     Matrix.new( (0..self.rows.first.length-1).map { |i| self.column(i) } )
   end
 
+  def determinant
+    (self[0,0] * self[1,1]) - (self[1,0] * self[0,1])
+  end
+
 end
