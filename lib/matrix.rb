@@ -70,7 +70,8 @@ class Matrix
   end
 
   def submatrix(row, column)
-    Matrix.new(self.rows).tap do |result|
+    rows_copy = self.rows.map{|r| r.each.map{|e| e}}
+    Matrix.new(rows_copy).tap do |result|
       (0..(result.rows[0].length-1)).each do |i|
         result[row,i] = nil
       end
@@ -80,6 +81,10 @@ class Matrix
       result.rows.each(&:compact!)
       result.rows.delete_if { |row| row.empty? }
     end
+  end
+
+  def minor(row, column)
+    submatrix(row, column).determinant
   end
 
 end

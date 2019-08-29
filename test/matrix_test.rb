@@ -117,4 +117,14 @@ describe Matrix do
     end
   end
 
+  describe "Minor" do
+    it "of a 3x3 matrix" do
+      a = Matrix.new([[3, 5, 0], [2, -1, -7], [6, -1, 5]])
+      b = a.submatrix(1, 0)
+      # p a.rows
+      assert_equal 25, b.determinant
+      assert_equal 25, a.minor(1, 0)
+    end
+  end
+
 end
