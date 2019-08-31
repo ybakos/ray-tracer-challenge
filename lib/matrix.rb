@@ -87,4 +87,8 @@ class Matrix
     submatrix(row, column).determinant
   end
 
+  def cofactor(row, column)
+    row + column % 2 == 0 ? minor(row, column) : -1 * minor(row, column)
+  end
+
 end
